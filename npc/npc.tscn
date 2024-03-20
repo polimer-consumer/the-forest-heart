@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdvdk6v0l56fr"]
+
+[ext_resource type="Texture2D" uid="uid://m3vxvlywtkh1" path="res://sprites/animals/Free Sprites 2x.png" id="1_uc0b5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw80p"]
+size = Vector2(26, 22)
+
+[node name="NPC" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uc0b5")
+region_enabled = true
+region_rect = Rect2(40.9521, 84.6628, 25.8314, 23.3059)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_lw80p")
