@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdvdk6v0l56fr"]
+[gd_scene load_steps=5 format=3 uid="uid://cdvdk6v0l56fr"]
 
+[ext_resource type="Script" path="res://npc/npc.gd" id="1_ccqp5"]
 [ext_resource type="Texture2D" uid="uid://m3vxvlywtkh1" path="res://sprites/animals/Free Sprites 2x.png" id="1_uc0b5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lw80p"]
 size = Vector2(26, 22)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ypvd6"]
+radius = 40.0125
+
 [node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_ccqp5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uc0b5")
@@ -15,3 +20,10 @@ region_rect = Rect2(40.9521, 84.6628, 25.8314, 23.3059)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_lw80p")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ypvd6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

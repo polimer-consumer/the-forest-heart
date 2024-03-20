@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://caox3bn1axg0r"]
+[gd_scene load_steps=9 format=3 uid="uid://caox3bn1axg0r"]
 
+[ext_resource type="Script" path="res://map/level.gd" id="1_1cyih"]
 [ext_resource type="Texture2D" uid="uid://bcjrky3tv3nid" path="res://tiles/Trees.png" id="1_5xj0t"]
 [ext_resource type="PackedScene" uid="uid://w62us1abgvss" path="res://player/player.tscn" id="1_ks8ev"]
 [ext_resource type="Texture2D" uid="uid://dn108y8t1mvmm" path="res://tiles/GrassNDirt.png" id="2_i8j3l"]
@@ -88,6 +89,7 @@ sources/1 = SubResource("TileSetAtlasSource_hv0j5")
 sources/2 = SubResource("TileSetAtlasSource_fx3vf")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_1cyih")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5n056")
@@ -99,3 +101,5 @@ position = Vector2(134, 123)
 
 [node name="NPC" parent="." instance=ExtResource("4_ec2ih")]
 position = Vector2(274, 85)
+
+[connection signal="player_near_npc" from="NPC" to="." method="_on_npc_player_near_npc"]
