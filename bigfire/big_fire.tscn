@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://sbnftvw0csxi"]
+
+[ext_resource type="Script" path="res://bigfire/big_fire.gd" id="1_7r8gu"]
+[ext_resource type="AudioStream" uid="uid://lls3xwoj42yc" path="res://audio/campfire-1.mp3" id="2_ah0kq"]
+
+[node name="BigFire" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_7r8gu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ah0kq")
+max_distance = 200.0
+attenuation = 0.329877

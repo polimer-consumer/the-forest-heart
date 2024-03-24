@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://caox3bn1axg0r"]
+[gd_scene load_steps=11 format=3 uid="uid://caox3bn1axg0r"]
 
 [ext_resource type="Script" path="res://map/level.gd" id="1_1cyih"]
 [ext_resource type="Texture2D" uid="uid://bcjrky3tv3nid" path="res://tiles/Trees.png" id="1_5xj0t"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn108y8t1mvmm" path="res://tiles/GrassNDirt.png" id="2_i8j3l"]
 [ext_resource type="PackedScene" uid="uid://cdvdk6v0l56fr" path="res://npc/npc.tscn" id="4_ec2ih"]
 [ext_resource type="AudioStream" uid="uid://bo2488uqkca31" path="res://audio/forest_ambient.mp3" id="6_fdhex"]
+[ext_resource type="PackedScene" uid="uid://sbnftvw0csxi" path="res://bigfire/big_fire.tscn" id="7_ln3b7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hv0j5"]
 texture = ExtResource("1_5xj0t")
@@ -250,5 +251,7 @@ position = Vector2(274, 85)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fdhex")
+
+[node name="BigFire" parent="." instance=ExtResource("7_ln3b7")]
 
 [connection signal="player_near_npc" from="NPC" to="." method="_on_npc_player_near_npc"]

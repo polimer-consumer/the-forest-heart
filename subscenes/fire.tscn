@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://cllbe26n8fxux"]
+
+[ext_resource type="Texture2D" uid="uid://bdyx51txj14m" path="res://sprites/fire.png" id="1_31me7"]
+[ext_resource type="Script" path="res://subscenes/fire.gd" id="1_nb1wx"]
+[ext_resource type="AudioStream" uid="uid://lls3xwoj42yc" path="res://audio/campfire-1.mp3" id="2_30dfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riruc"]
+atlas = ExtResource("1_31me7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2tmu"]
+atlas = ExtResource("1_31me7")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taq1u"]
+atlas = ExtResource("1_31me7")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa7os"]
+atlas = ExtResource("1_31me7")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us8aw"]
+atlas = ExtResource("1_31me7")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkpmg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riruc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2tmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taq1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa7os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us8aw")
+}],
+"loop": true,
+"name": &"initial",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gc5o1"]
+radius = 14.0
+
+[node name="Fire" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_nb1wx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_dkpmg")
+animation = &"initial"
+frame_progress = 0.995763
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_gc5o1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -12)
+stream = ExtResource("2_30dfh")
+max_distance = 200.0
+attenuation = 0.594603
