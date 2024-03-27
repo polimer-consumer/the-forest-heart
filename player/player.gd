@@ -11,7 +11,7 @@ func  _ready():
 	audio_listener.make_current()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "forward", "backward").normalized()
 	if direction != Vector2.ZERO:
 		if direction.x > 0:

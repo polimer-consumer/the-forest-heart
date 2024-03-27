@@ -49,22 +49,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32r6o"]
-size = Vector2(22, 8)
+size = Vector2(30, 11)
 
 [node name="Fire" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_nb1wx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_dkpmg")
 animation = &"initial"
 frame_progress = 0.995763
+offset = Vector2(0, 5)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -6)
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_32r6o")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -77,10 +80,10 @@ attenuation = 0.594603
 position = Vector2(0, -10)
 scale = Vector2(6.5, 4.5)
 color = Color(1, 0.568627, 0.227451, 0.709804)
-energy = 2.0
+energy = 0.8
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.156863)
-shadow_filter = 2
-shadow_filter_smooth = 3.0
+shadow_filter = 1
+shadow_filter_smooth = 7.0
 texture = ExtResource("4_fqn77")
-texture_scale = 0.02
+texture_scale = 0.05

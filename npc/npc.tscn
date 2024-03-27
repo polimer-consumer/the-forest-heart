@@ -76,8 +76,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oad2k"]
-radius = 11.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75hxa"]
+radius = 7.0
+height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpnfd"]
 radius = 46.0435
@@ -91,13 +92,15 @@ max_distance = 200.0
 attenuation = 2.82842
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_k8x6w")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_oad2k")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_75hxa")
 
 [node name="Area2D" type="Area2D" parent="."]
 
