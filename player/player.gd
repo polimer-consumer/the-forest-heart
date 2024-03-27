@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: int = 150
+@export var speed: int = 100
 @onready var animation_player = $AnimationPlayer
 @onready var audio_listener = $AudioListener2D
 @onready var sprite = $Sprite2D
@@ -11,7 +11,7 @@ func  _ready():
 	audio_listener.make_current()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "forward", "backward").normalized()
 	if direction != Vector2.ZERO:
 		if direction.x > 0:

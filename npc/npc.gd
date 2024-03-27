@@ -82,5 +82,5 @@ func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		set_timer()
 
-func _process(delta):
+func _physics_process(delta):
 	move_and_slide()

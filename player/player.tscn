@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://w62us1abgvss"]
+[gd_scene load_steps=8 format=3 uid="uid://w62us1abgvss"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g7yvc"]
 [ext_resource type="Texture2D" uid="uid://07v3uwoa5ryh" path="res://sprites/spritesheet.png" id="2_v13u1"]
@@ -58,6 +58,10 @@ _data = {
 "walk": SubResource("Animation_hd3e5")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkdlp"]
+radius = 4.0
+height = 22.0
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_g7yvc")
@@ -67,17 +71,19 @@ libraries = {
 "": SubResource("AnimationLibrary_f1hd5")
 }
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0, -7)
-polygon = PackedVector2Array(0, 0, -5, 0, -8, 1, -10, 3, -8, 5, -6, 7, -2, 7, 3, 7, 7, 7, 10, 5, 11, 2, 8, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kkdlp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -20)
+texture_filter = 1
 texture = ExtResource("2_v13u1")
+offset = Vector2(0, -20)
 hframes = 9
 vframes = 2
 region_rect = Rect2(1.81583, 1.57898, 44.6448, 44.6448)
