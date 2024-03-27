@@ -76,8 +76,8 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -20)
 texture = ExtResource("2_v13u1")
+offset = Vector2(0, -20)
 hframes = 9
 vframes = 2
 region_rect = Rect2(1.81583, 1.57898, 44.6448, 44.6448)
