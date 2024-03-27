@@ -1,13 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://caox3bn1axg0r"]
+[gd_scene load_steps=24 format=3 uid="uid://caox3bn1axg0r"]
 
 [ext_resource type="Script" path="res://map/level.gd" id="1_1cyih"]
 [ext_resource type="Texture2D" uid="uid://bcjrky3tv3nid" path="res://tiles/Trees.png" id="1_5xj0t"]
 [ext_resource type="PackedScene" uid="uid://w62us1abgvss" path="res://player/player.tscn" id="1_ks8ev"]
 [ext_resource type="Texture2D" uid="uid://dn108y8t1mvmm" path="res://tiles/GrassNDirt.png" id="2_i8j3l"]
 [ext_resource type="PackedScene" uid="uid://cdvdk6v0l56fr" path="res://npc/npc.tscn" id="4_ec2ih"]
-[ext_resource type="Texture2D" uid="uid://b22ydupgd00dj" path="res://tiles/trash_1.png" id="4_wttxv"]
 [ext_resource type="AudioStream" uid="uid://bo2488uqkca31" path="res://audio/forest_ambient.mp3" id="6_fdhex"]
 [ext_resource type="PackedScene" uid="uid://sbnftvw0csxi" path="res://bigfire/big_fire.tscn" id="7_ln3b7"]
+[ext_resource type="PackedScene" uid="uid://d4blsldik5vej" path="res://subscenes/trash.tscn" id="9_7gkpx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qmva"]
 polygon = PackedVector2Array(-4, 25.5, 3.75, 24.5, 3.25, 36.75, -3.75, 36.75)
@@ -271,20 +271,11 @@ texture = ExtResource("2_i8j3l")
 7:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:4/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0h1rq"]
-texture = ExtResource("4_wttxv")
-5:7/size_in_atlas = Vector2i(6, 3)
-5:7/0 = 0
-5:7/0/y_sort_origin = -10
-5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:7/0/physics_layer_0/angular_velocity = 0.0
-
 [sub_resource type="TileSet" id="TileSet_5n056"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_hv0j5")
 sources/2 = SubResource("TileSetAtlasSource_fx3vf")
-sources/3 = SubResource("TileSetAtlasSource_0h1rq")
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -292,6 +283,7 @@ script = ExtResource("1_1cyih")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
+position = Vector2(0, 2)
 tile_set = SubResource("TileSet_5n056")
 format = 2
 layer_0/name = "terrain"
@@ -313,4 +305,12 @@ stream = ExtResource("6_fdhex")
 
 [node name="BigFire" parent="." instance=ExtResource("7_ln3b7")]
 
+[node name="trash" parent="." instance=ExtResource("9_7gkpx")]
+z_index = 1
+position = Vector2(304, -3)
+
+[node name="Notification" type="Sprite2D" parent="."]
+
 [connection signal="player_near_npc" from="NPC" to="." method="_on_npc_player_near_npc"]
+[connection signal="player_near_trash" from="trash" to="Player" method="_on_trash_player_near_trash"]
+[connection signal="trash_collected" from="trash" to="." method="_on_trash_trash_collected"]

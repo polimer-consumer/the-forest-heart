@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var audio_listener = $AudioListener2D
 @onready var sprite = $Sprite2D
+@onready var trash = $"../trash"
 
 func  _ready():
 	add_to_group("player")
@@ -22,3 +23,7 @@ func _process(delta):
 		animation_player.play("idle")
 	velocity = direction * speed
 	move_and_slide()
+
+
+func _on_trash_player_near_trash():
+	pass # Replace with function body.

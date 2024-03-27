@@ -10,3 +10,7 @@ func _on_npc_player_near_npc(body):
 	if body.is_in_group("player"):
 		print("player entered")
 
+
+
+func _on_trash_trash_collected():
+	print(" У тебя естьведро")
