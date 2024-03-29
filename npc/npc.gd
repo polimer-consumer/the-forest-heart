@@ -36,7 +36,6 @@ func _on_timer_timeout():
 
 func update_state(new_state):
 	current_state = new_state
-	print(new_state)
 	match current_state:
 		State.IDLE:
 			velocity = Vector2.ZERO

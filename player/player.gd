@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var speed: int = 100
+@export var inventory: Inventory
+
 @onready var animation_player = $AnimationPlayer
 @onready var audio_listener = $AudioListener2D
 @onready var sprite = $Sprite2D

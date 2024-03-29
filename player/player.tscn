@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://w62us1abgvss"]
+[gd_scene load_steps=9 format=3 uid="uid://w62us1abgvss"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g7yvc"]
+[ext_resource type="Resource" uid="uid://rkf2woxwjg6t" path="res://inventory/player_inventory.tres" id="2_7h710"]
 [ext_resource type="Texture2D" uid="uid://07v3uwoa5ryh" path="res://sprites/spritesheet.png" id="2_v13u1"]
 
 [sub_resource type="Animation" id="Animation_ar2rh"]
@@ -65,6 +66,7 @@ height = 22.0
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_g7yvc")
+inventory = ExtResource("2_7h710")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
