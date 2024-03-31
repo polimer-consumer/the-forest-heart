@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal player_near_npc(body)
+var player_near_frog = false 
 
 @onready var audio = $AudioStreamPlayer2D
 @onready var animation = $AnimatedSprite2D
@@ -76,6 +77,12 @@ func _on_area_2d_body_entered(body):
 		timer.stop()
 		update_state(State.IDLE)
 		player_near_npc.emit(body)
+		use_dialogue()
+		
+func use_dialogue():
+	var dialogue = get_parent().get_node("Dialogue")
+	if dialogue:
+		dialogue.start()
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
