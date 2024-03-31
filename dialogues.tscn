@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn38goyg6vpyl"]
+
+[ext_resource type="Script" path="res://Dialogue.gd" id="1_scw1l"]
+[ext_resource type="Texture2D" uid="uid://xr1sr0eikg4s" path="res://dialogues/light frame 10.png" id="2_yo3r6"]
+
+[node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_scw1l")
+d_file = "res://dialogues/json/frog_chat.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+process_priority = 1
+process_physics_priority = 1
+self_modulate = Color(0.792157, 0.894118, 1, 1)
+light_mask = 3
+visibility_layer = 3
+offset_left = 283.0
+offset_top = 571.0
+offset_right = 1080.0
+offset_bottom = 698.0
+size_flags_horizontal = 4
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+texture = ExtResource("2_yo3r6")
+region_rect = Rect2(0.279709, 1.72833, 23.0453, 22.1235)
+patch_margin_left = 3
+patch_margin_top = 1
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+modulate = Color(0.133333, 0.313726, 0.211765, 1)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 2.0
+offset_right = 165.0
+offset_bottom = 63.0
+theme_override_font_sizes/normal_font_size = 34
+text = "Name: "
+
+[node name="Chat" type="RichTextLabel" parent="NinePatchRect"]
+modulate = Color(0.101961, 0.282353, 0.196078, 1)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 42.0
+offset_right = 758.0
+offset_bottom = 121.0
+theme_override_font_sizes/normal_font_size = 27
+text = "Chat"
