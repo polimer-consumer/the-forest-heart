@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdvdk6v0l56fr"]
+[gd_scene load_steps=19 format=3 uid="uid://cdvdk6v0l56fr"]
 
 [ext_resource type="Script" path="res://npc/npc.gd" id="1_ccqp5"]
 [ext_resource type="AudioStream" uid="uid://crspr2jlsxs4b" path="res://audio/frog1.mp3" id="3_d21hd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b4oxt88yiq1x0" path="res://sprites/animals/Jump.png" id="4_qmgfs"]
 [ext_resource type="Texture2D" uid="uid://cohjh3attfbig" path="res://sprites/animals/Fall.png" id="5_lttjm"]
 [ext_resource type="Texture2D" uid="uid://g0kbdfmmqsle" path="res://sprites/animals/Land.png" id="6_m0ie2"]
+[ext_resource type="PackedScene" uid="uid://dn38goyg6vpyl" path="res://dialogues.tscn" id="8_y00kt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68h1i"]
 atlas = ExtResource("3_g42gt")
@@ -111,6 +112,8 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_hpnfd")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Dialogue" parent="." instance=ExtResource("8_y00kt")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
