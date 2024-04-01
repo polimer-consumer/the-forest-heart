@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dulq158kpkwvu" path="res://tiles/TimberWolfIdleSide.png" id="2_fbe4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdc5c"]
+size = Vector2(29, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hnqq0"]
 atlas = ExtResource("2_fbe4n")
@@ -64,12 +65,13 @@ script = ExtResource("1_cgjcb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 z_as_relative = false
+position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_cdc5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-2.38419e-07, -2.38419e-07)
-scale = Vector2(1.375, 1.375)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tic0g")
 animation = &"jump"
 

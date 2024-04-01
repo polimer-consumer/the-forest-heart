@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://caox3bn1axg0r"]
+[gd_scene load_steps=36 format=3 uid="uid://caox3bn1axg0r"]
 
 [ext_resource type="Script" path="res://map/level.gd" id="1_1cyih"]
 [ext_resource type="Texture2D" uid="uid://bcjrky3tv3nid" path="res://tiles/Trees.png" id="1_5xj0t"]
@@ -11,8 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://bo2488uqkca31" path="res://audio/forest_ambient.mp3" id="6_fdhex"]
 [ext_resource type="AudioStream" uid="uid://buaeowo0b6607" path="res://audio/lake_sound.mp3" id="7_t2vx8"]
 [ext_resource type="PackedScene" uid="uid://d4blsldik5vej" path="res://subscenes/trash.tscn" id="9_7gkpx"]
+[ext_resource type="PackedScene" uid="uid://spd3myqswf2f" path="res://wolf.tscn" id="10_yswwk"]
 [ext_resource type="PackedScene" uid="uid://bmg5i831shj4v" path="res://inventory/ui/inventory_ui.tscn" id="11_8w6it"]
 [ext_resource type="PackedScene" uid="uid://dn38goyg6vpyl" path="res://dialogues.tscn" id="12_j716d"]
+[ext_resource type="PackedScene" uid="uid://bxnjtlfgjs3s" path="res://dialogue_wolf.tscn" id="15_wtyov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1848"]
 texture = ExtResource("2_7bop1")
@@ -702,6 +704,8 @@ position = Vector2(134, 123)
 [node name="NPC" parent="." instance=ExtResource("4_ec2ih")]
 position = Vector2(274, 85)
 
+[node name="Wolf" parent="." instance=ExtResource("10_yswwk")]
+
 [node name="AmbientForestSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fdhex")
 
@@ -720,7 +724,9 @@ transform = Transform2D(3, 0, 0, 3, 30, 10)
 offset_left = -8.0
 offset_right = -1196.0
 
-[node name="Dialogue" parent="." instance=ExtResource("12_j716d")]
+[node name="Dialogue_frog" parent="." instance=ExtResource("12_j716d")]
+
+[node name="Dialogue_wolf" parent="." instance=ExtResource("15_wtyov")]
 
 [connection signal="body_entered" from="TileMap/Area2D" to="." method="_on_player_entered_water"]
 [connection signal="body_exited" from="TileMap/Area2D" to="." method="_on_player_exited_water"]
