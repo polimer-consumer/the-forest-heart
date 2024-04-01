@@ -1,11 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4blsldik5vej"]
+[gd_scene load_steps=11 format=3 uid="uid://d4blsldik5vej"]
 
 [ext_resource type="Script" path="res://trash.gd" id="1_wc60g"]
-[ext_resource type="Texture2D" uid="uid://b22ydupgd00dj" path="res://tiles/trash_1.png" id="2_lnjtl"]
+[ext_resource type="Texture2D" uid="uid://bwtnld2r5arc3" path="res://sprites/trash_state_0.png" id="3_i6y4x"]
+[ext_resource type="Texture2D" uid="uid://biscp8n3jcqjb" path="res://sprites/trash_state_1.png" id="4_rqwki"]
+[ext_resource type="Texture2D" uid="uid://hv0jl6y4x0vl" path="res://sprites/trash_state_2.png" id="5_xtkno"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x53tf"]
+atlas = ExtResource("3_i6y4x")
+region = Rect2(0, 0, 606, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t2gt"]
+atlas = ExtResource("4_rqwki")
+region = Rect2(0, 0, 499, 499)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7max"]
+atlas = ExtResource("5_xtkno")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfl61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x53tf")
+}],
+"loop": true,
+"name": &"first",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t2gt")
+}],
+"loop": true,
+"name": &"second",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7max")
+}],
+"loop": true,
+"name": &"third",
+"speed": 1.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aj4lp"]
 radius = 7.0
-height = 72.0
+height = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dl573"]
 size = Vector2(98, 52)
@@ -13,12 +54,14 @@ size = Vector2(98, 52)
 [node name="trash" type="StaticBody2D"]
 script = ExtResource("1_wc60g")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_lnjtl")
+scale = Vector2(0.13, 0.13)
+sprite_frames = SubResource("SpriteFrames_jfl61")
+animation = &"second"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13)
+position = Vector2(0, 6)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_aj4lp")
 

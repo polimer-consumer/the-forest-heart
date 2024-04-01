@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://caox3bn1axg0r"]
+[gd_scene load_steps=34 format=3 uid="uid://caox3bn1axg0r"]
 
 [ext_resource type="Script" path="res://map/level.gd" id="1_1cyih"]
 [ext_resource type="Texture2D" uid="uid://bcjrky3tv3nid" path="res://tiles/Trees.png" id="1_5xj0t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bcteo3ai1f5of" path="res://tiles/dead_tree.png" id="5_2jgcu"]
 [ext_resource type="Texture2D" uid="uid://dlhfllvo1pe0" path="res://tiles/RocksnStumps.png" id="5_wxn8o"]
 [ext_resource type="AudioStream" uid="uid://bo2488uqkca31" path="res://audio/forest_ambient.mp3" id="6_fdhex"]
+[ext_resource type="AudioStream" uid="uid://buaeowo0b6607" path="res://audio/lake_sound.mp3" id="7_t2vx8"]
 [ext_resource type="PackedScene" uid="uid://d4blsldik5vej" path="res://subscenes/trash.tscn" id="9_7gkpx"]
 [ext_resource type="PackedScene" uid="uid://bmg5i831shj4v" path="res://inventory/ui/inventory_ui.tscn" id="11_8w6it"]
 [ext_resource type="PackedScene" uid="uid://dn38goyg6vpyl" path="res://dialogues.tscn" id="12_j716d"]
@@ -684,6 +685,12 @@ layer_1/tile_data = PackedInt32Array(1114129, 458754, 3, 983059, 1310721, 7, 131
 
 [node name="Area2D" type="Area2D" parent="TileMap"]
 
+[node name="LakeSound" type="AudioStreamPlayer2D" parent="TileMap/Area2D"]
+position = Vector2(-20, 220)
+stream = ExtResource("7_t2vx8")
+max_distance = 150.0
+attenuation = 1.27456
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Area2D"]
 position = Vector2(-18.5, 226)
 shape = SubResource("RectangleShape2D_dicvh")
@@ -695,7 +702,7 @@ position = Vector2(134, 123)
 [node name="NPC" parent="." instance=ExtResource("4_ec2ih")]
 position = Vector2(274, 85)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AmbientForestSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fdhex")
 
 [node name="trash" parent="." instance=ExtResource("9_7gkpx")]
@@ -705,8 +712,9 @@ position = Vector2(304, -3)
 [node name="Notification" type="Sprite2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(30, 10)
 scale = Vector2(3, 3)
-transform = Transform2D(3, 0, 0, 3, 0, 0)
+transform = Transform2D(3, 0, 0, 3, 30, 10)
 
 [node name="InventoryUI" parent="CanvasLayer" instance=ExtResource("11_8w6it")]
 offset_left = -8.0
