@@ -1,8 +1,8 @@
 
 extends CharacterBody2D
 
-signal player_near_npc(body)
-var player_near_frog = false 
+signal player_near_wolf(body)
+
 
 @onready var animation = $AnimatedSprite2D
 @onready var timer = $Timer
@@ -56,9 +56,9 @@ func update_state(new_state):
 			if can_move_to_direction(direction, speed * timer.wait_time):
 				velocity = direction * speed
 				if direction.x < 0:
-					animation.flip_h = false
-				else:
 					animation.flip_h = true
+				else:
+					animation.flip_h = false
 				animation.play("jump")
 			else:
 				update_state(State.IDLE)
@@ -74,18 +74,18 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		timer.stop()
 		update_state(State.IDLE)
-		player_near_npc.emit(body)
+		player_near_wolf.emit(body)
 		use_dialogue()
 		
 func use_dialogue():
-	var dialogue = get_parent().get_node("Dialogue")
+	var dialogue = get_parent().get_node("Dialogue_wolf")
 	if dialogue:
 		dialogue.start()
 		
 func dont_use_dialog():
-	var dialogue = get_parent().get_node("Dialogue")
+	var dialogue = get_parent().get_node("Dialogue_wolf")
 	if dialogue:
-		dialogue.start()
+		dialogue.end()
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):

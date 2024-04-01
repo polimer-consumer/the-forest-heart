@@ -5,4 +5,7 @@
      {"name": "You", "text": "Well, but why is it here?"},
      {"name": "Frog", "text": "These are people.. They pollute, burn and destroy our forest.."},
      {"name": "You", "text": "Oh, okey.."},
+     
+     {"name": "Wolf", "text": "Please help! The field is on fire! "},
+     {"name": "Wolf", "text": "You should bring some water, do you have a bucket?"},
 ]

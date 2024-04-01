@@ -80,12 +80,12 @@ func _on_area_2d_body_entered(body):
 		use_dialogue()
 		
 func use_dialogue():
-	var dialogue = get_parent().get_node("Dialogue")
+	var dialogue = get_parent().get_node("Dialogue_frog")
 	if dialogue:
 		dialogue.start()
 
 func dont_use_dialogue():
-	var dialogue = get_parent().get_node("Dialogue")
+	var dialogue = get_parent().get_node("Dialogue_frog")
 	if dialogue:
 		dialogue.end()
 		

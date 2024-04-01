@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Dialogue.gd" id="1_scw1l"]
 [ext_resource type="Texture2D" uid="uid://xr1sr0eikg4s" path="res://dialogues/light frame 10.png" id="2_yo3r6"]
 
-[node name="Dialogue" type="CanvasLayer"]
+[node name="Dialogue_frog" type="CanvasLayer"]
 script = ExtResource("1_scw1l")
 d_file = "res://dialogues/json/frog_chat.json"
 
@@ -21,7 +21,7 @@ size_flags_horizontal = 4
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 texture = ExtResource("2_yo3r6")
-region_rect = Rect2(0.279709, 1.72833, 23.0453, 22.1235)
+region_rect = Rect2(0.28, 1.423, 23.045, 22.124)
 patch_margin_left = 3
 patch_margin_top = 1
 patch_margin_right = 3

@@ -15,7 +15,7 @@ func start():
 	d_active = true
 	$NinePatchRect.visible = true
 	dialogue = load_dialogue()
-	cur_dialogue_id = -1
+	cur_dialogue_id = 5
 	next_script()
 	
 func load_dialogue():
@@ -32,7 +32,7 @@ func _input(event):
 func next_script():
 	cur_dialogue_id += 1
 	
-	if cur_dialogue_id >= 6:
+	if cur_dialogue_id >= len(dialogue):
 		d_active = false
 		$NinePatchRect.visible = false
 		return
