@@ -97,7 +97,7 @@ attenuation = 2.82842
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_k8x6w")
-animation = &"idle"
+animation = &"jump"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

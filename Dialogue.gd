@@ -40,5 +40,8 @@ func next_script():
 	$NinePatchRect/Name.text = dialogue[cur_dialogue_id]['name']
 	$NinePatchRect/Chat.text = dialogue[cur_dialogue_id]['text']
 
-	
+func end():
+	d_active = false
+	$NinePatchRect.visible = false
+	return
 	
