@@ -1,7 +1,8 @@
 extends Node2D
 
-@onready var fire_sound = $AudioStreamPlayer2D
+signal fire_extinguished
 
+@onready var fire_sound = $AudioStreamPlayer2D
 var fire_scene = preload("..//subscenes/fire.tscn")
 @export var max_fires = 5
 @export var area_size = Vector2(70, 70)
@@ -15,6 +16,19 @@ func _ready():
 	for child in get_children():
 		child.position += fire_center
 	fire_sound.play()
+
+func _process(_delta):
+	if Input.is_action_just_pressed("take_trash"):
+		extunguish_fire()
+
+func extunguish_fire():
+	var fires = get_children().filter(func(child): return child.has_method("is_fire"))
+	if fires.size() > 0:
+		var fire = fires[0]
+		fire.queue_free()
+		if fires.size() == 1:
+			get_children()[0].queue_free()
+			fire_extinguished.emit()
 
 func populate_fires():
 	for i in range(max_fires):
