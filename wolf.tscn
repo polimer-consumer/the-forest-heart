@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://Wolf.gd" id="1_cgjcb"]
 [ext_resource type="Texture2D" uid="uid://dulq158kpkwvu" path="res://tiles/TimberWolfIdleSide.png" id="2_fbe4n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdc5c"]
-size = Vector2(29, 29)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hnqq0"]
 atlas = ExtResource("2_fbe4n")
 region = Rect2(0, 0, 16, 16)
@@ -57,16 +54,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rf3lo"]
 radius = 40.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdc5c"]
+size = Vector2(29, 29)
+
 [node name="Wolf" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_cgjcb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
-z_as_relative = false
-position = Vector2(0.5, 2.5)
-shape = SubResource("RectangleShape2D_cdc5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -83,6 +77,12 @@ shape = SubResource("CircleShape2D_rf3lo")
 one_way_collision_margin = 0.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_cdc5c")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

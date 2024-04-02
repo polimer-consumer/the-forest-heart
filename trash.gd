@@ -8,6 +8,7 @@ var player_is_near = false
 var trash_state
 var player
 @export var bucket_item: InventoryItem
+@export var seed_item: InventoryItem
 
 enum State {
 	DEFAULT,
@@ -39,6 +40,7 @@ func update_trash():
 			trash_state = State.CLEAN
 			if player:
 				player.collect_item(bucket_item)
+				player.collect_item(seed_item)
 			trash_collected.emit()
 	
 
