@@ -5,6 +5,7 @@ extends Control
 var is_open = false
 
 func _ready():
+	inventory.update_slot.connect(update)
 	update()
 	close()
 

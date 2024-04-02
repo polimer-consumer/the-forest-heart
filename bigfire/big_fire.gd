@@ -3,9 +3,9 @@ extends Node2D
 @onready var fire_sound = $AudioStreamPlayer2D
 
 var fire_scene = preload("..//subscenes/fire.tscn")
-@export var max_fires = 10
-@export var area_size = Vector2(100, 100) # Размеры зоны для размещения
-@export var min_distance = 30 # Минимальное расстояние между кострами
+@export var max_fires = 5
+@export var area_size = Vector2(70, 70)
+@export var min_distance = 20
 @export var fire_center = Vector2(-100, -50)
 
 func _ready():

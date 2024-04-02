@@ -34,7 +34,7 @@ func _on_player_exited_water(body):
 func _process(delta):
 	if Input.is_action_just_pressed("spawn_fire"):
 		var new_fire = fire_scene.instantiate()
-		new_fire.fire_center = Vector2(randf_range(-100, 300), randf_range(-100, 300))
+		new_fire.fire_center = Vector2(-180, 80)
 		add_child(new_fire)
 	_player_take_water()
 			

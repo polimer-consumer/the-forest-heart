@@ -11,10 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://bo2488uqkca31" path="res://audio/forest_ambient.mp3" id="6_fdhex"]
 [ext_resource type="AudioStream" uid="uid://buaeowo0b6607" path="res://audio/lake_sound.mp3" id="7_t2vx8"]
 [ext_resource type="PackedScene" uid="uid://d4blsldik5vej" path="res://subscenes/trash.tscn" id="9_7gkpx"]
-[ext_resource type="PackedScene" uid="uid://spd3myqswf2f" path="res://wolf.tscn" id="10_yswwk"]
+[ext_resource type="PackedScene" path="res://wolf.tscn" id="10_yswwk"]
 [ext_resource type="PackedScene" uid="uid://bmg5i831shj4v" path="res://inventory/ui/inventory_ui.tscn" id="11_8w6it"]
 [ext_resource type="PackedScene" uid="uid://dn38goyg6vpyl" path="res://dialogues.tscn" id="12_j716d"]
-[ext_resource type="PackedScene" uid="uid://bxnjtlfgjs3s" path="res://dialogue_wolf.tscn" id="15_wtyov"]
+[ext_resource type="PackedScene" path="res://dialogue_wolf.tscn" id="15_wtyov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1848"]
 texture = ExtResource("2_7bop1")

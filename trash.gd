@@ -6,6 +6,8 @@ signal trash_collected()
 @onready var trash_sprite = $AnimatedSprite2D
 var player_is_near = false
 var trash_state
+var player
+@export var bucket_item: InventoryItem
 
 enum State {
 	DEFAULT,
@@ -35,16 +37,20 @@ func update_trash():
 			trash_sprite.play("third")
 		State.COLLECTED_2:
 			trash_state = State.CLEAN
+			if player:
+				player.collect_item(bucket_item)
 			trash_collected.emit()
 	
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		player_is_near = true
+		player = body
 		player_near_trash.emit()
 
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		player_is_near = false
+		player = null
 		player_exited_trash.emit()

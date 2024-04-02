@@ -26,6 +26,8 @@ func _physics_process(delta):
 	velocity = direction * speed
 	move_and_slide()
 
-
 func _on_trash_player_near_trash():
 	pass # Replace with function body.
+
+func collect_item(item):
+	inventory.insert(item)
