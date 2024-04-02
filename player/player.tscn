@@ -84,6 +84,8 @@ position_smoothing_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(4, 1.3)
+scale = Vector2(0.833333, 0.74)
 texture = ExtResource("2_v13u1")
 offset = Vector2(0, -20)
 hframes = 9
