@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dn38goyg6vpyl" path="res://dialogues.tscn" id="12_j716d"]
 [ext_resource type="Script" path="res://inventory/inv_item.gd" id="13_eagrq"]
 [ext_resource type="Texture2D" uid="uid://dahfjkwdveciy" path="res://sprites/seed.png" id="14_d6cla"]
-[ext_resource type="PackedScene" path="res://dialogue_wolf.tscn" id="15_wtyov"]
+[ext_resource type="PackedScene" uid="uid://bxnjtlfgjs3s" path="res://dialogue_wolf.tscn" id="15_wtyov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1848"]
 texture = ExtResource("2_7bop1")
