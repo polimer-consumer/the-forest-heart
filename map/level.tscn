@@ -698,7 +698,7 @@ sources/8 = SubResource("TileSetAtlasSource_r0cy6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dicvh"]
 size = Vector2(155, 88)
 
-[sub_resource type="Resource" id="Resource_v1jmp"]
+[sub_resource type="Resource" id="Resource_rf08h"]
 resource_local_to_scene = true
 script = ExtResource("13_eagrq")
 name = "seed"
@@ -749,7 +749,7 @@ stream = ExtResource("6_fdhex")
 [node name="trash" parent="." instance=ExtResource("9_7gkpx")]
 z_index = 1
 position = Vector2(304, -3)
-seed_item = SubResource("Resource_v1jmp")
+seed_item = SubResource("Resource_rf08h")
 
 [node name="Notification" type="Sprite2D" parent="."]
 
