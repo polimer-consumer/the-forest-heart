@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4blsldik5vej"]
+[gd_scene load_steps=14 format=3 uid="uid://d4blsldik5vej"]
 
 [ext_resource type="Script" path="res://trash.gd" id="1_wc60g"]
 [ext_resource type="Resource" uid="uid://dmo85g01cji5v" path="res://inventory/items/bucket.tres" id="2_tus3u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bmxlm1ubq1gi7" path="res://inventory/items/seed.tres" id="3_twvw7"]
 [ext_resource type="Texture2D" uid="uid://biscp8n3jcqjb" path="res://sprites/trash_state_1.png" id="4_rqwki"]
 [ext_resource type="Texture2D" uid="uid://hv0jl6y4x0vl" path="res://sprites/trash_state_2.png" id="5_xtkno"]
+[ext_resource type="Texture2D" uid="uid://gk3qgoyyxjhg" path="res://sprites/light.png" id="7_84viy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x53tf"]
 atlas = ExtResource("3_i6y4x")
@@ -74,6 +75,12 @@ shape = SubResource("CapsuleShape2D_aj4lp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 7)
 shape = SubResource("RectangleShape2D_dl573")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+color = Color(1, 1, 1, 0.517647)
+texture = ExtResource("7_84viy")
+texture_scale = 0.1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

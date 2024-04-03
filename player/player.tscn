@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://w62us1abgvss"]
+[gd_scene load_steps=12 format=3 uid="uid://w62us1abgvss"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g7yvc"]
 [ext_resource type="Resource" uid="uid://rkf2woxwjg6t" path="res://inventory/player_inventory.tres" id="2_7h710"]
 [ext_resource type="Texture2D" uid="uid://07v3uwoa5ryh" path="res://sprites/spritesheet.png" id="2_v13u1"]
 [ext_resource type="Resource" uid="uid://dmo85g01cji5v" path="res://inventory/items/bucket.tres" id="3_4dej4"]
 [ext_resource type="Resource" uid="uid://bn6c2n0echgk" path="res://inventory/items/bucket_full.tres" id="3_m8fk8"]
+[ext_resource type="AudioStream" uid="uid://dja2q6wsfh2do" path="res://audio/steps_grass.mp3" id="6_u3l5d"]
 
 [sub_resource type="Animation" id="Animation_ar2rh"]
 length = 0.001
@@ -71,6 +72,10 @@ script = ExtResource("1_g7yvc")
 inventory = ExtResource("2_7h710")
 full_bucket = ExtResource("3_m8fk8")
 empty_bucket = ExtResource("3_4dej4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_u3l5d")
+volume_db = -20.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal player_near_npc(body)
+signal player_exited_npc(body)
 var player_near_frog = false 
 
 @onready var audio = $AudioStreamPlayer2D
@@ -91,6 +92,7 @@ func dont_use_dialogue():
 		
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
+		player_exited_npc.emit(body)
 		set_timer()
 	dont_use_dialogue()
 

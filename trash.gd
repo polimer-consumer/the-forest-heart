@@ -4,6 +4,7 @@ signal player_near_trash()
 signal player_exited_trash()
 signal trash_collected()
 @onready var trash_sprite = $AnimatedSprite2D
+@onready var trash_light = $PointLight2D
 var player_is_near = false
 var trash_state
 var player
@@ -40,7 +41,7 @@ func update_trash():
 			trash_state = State.CLEAN
 			if player:
 				player.collect_item(bucket_item)
-				player.collect_item(seed_item)
+				# player.collect_item(seed_item)
 			trash_collected.emit()
 	
 
@@ -56,3 +57,11 @@ func _on_area_2d_body_exited(body):
 		player_is_near = false
 		player = null
 		player_exited_trash.emit()
+
+
+func _light_trash_on_npc_player_near_npc(body):
+	trash_light.enabled = true
+
+
+func _light_off_on_npc_player_exited_npc(body):
+	trash_light.enabled = false
