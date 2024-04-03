@@ -6,7 +6,7 @@ signal player_exited_water()
 @onready var ambient_sound = $AmbientForestSound
 @onready var lake_sound = $TileMap/Area2D/LakeSound
 @onready var npc = $NPC
-var ground_layer = 2
+var ground_layer = 1
 var player_is_near = false
 var fire_scene = preload("res://bigfire/big_fire.tscn")
 var final_seeds_level = 5

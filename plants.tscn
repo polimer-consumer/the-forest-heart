@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyviagb588m6y"]
+[gd_scene load_steps=10 format=3 uid="uid://cxvmv3esu4dh0"]
 
-[ext_resource type="Script" path="res://seeds.gd" id="1_ho44u"]
 [ext_resource type="Texture2D" uid="uid://yxqu3cnrpwax" path="res://tiles/Fir Tree.png" id="2_jj4i1"]
+
+[sub_resource type="GDScript" id="GDScript_jm38i"]
+script/source = "extends CharacterBody2D
+
+@onready var animation = $AnimatedSprite2D
+@onready var timer = $Timer
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nrf14"]
 atlas = ExtResource("2_jj4i1")
@@ -59,7 +65,7 @@ animations = [{
 }]
 
 [node name="plants" type="Node2D"]
-script = ExtResource("1_ho44u")
+script = SubResource("GDScript_jm38i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4n0yk")
