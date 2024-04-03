@@ -3,54 +3,54 @@
 [ext_resource type="Script" path="res://inventory/inventory_slot.gd" id="1_0d3pt"]
 [ext_resource type="Script" path="res://inventory.gd" id="2_ubxg7"]
 
-[sub_resource type="Resource" id="Resource_yv8we"]
+[sub_resource type="Resource" id="Resource_15hxs"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_qpt8o"]
+[sub_resource type="Resource" id="Resource_2psum"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_7njvd"]
+[sub_resource type="Resource" id="Resource_7sm72"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_t3gx0"]
+[sub_resource type="Resource" id="Resource_nxc0p"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_ewma7"]
+[sub_resource type="Resource" id="Resource_mqpfb"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_r126r"]
+[sub_resource type="Resource" id="Resource_pkrim"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_amkmg"]
+[sub_resource type="Resource" id="Resource_7w4pf"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_2t61s"]
+[sub_resource type="Resource" id="Resource_eq73h"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_ttu6o"]
+[sub_resource type="Resource" id="Resource_cmu7r"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_ybuot"]
+[sub_resource type="Resource" id="Resource_eyfnt"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_kje8y"]
+[sub_resource type="Resource" id="Resource_keq2g"]
 script = ExtResource("1_0d3pt")
 count = 0
 
-[sub_resource type="Resource" id="Resource_3idaj"]
+[sub_resource type="Resource" id="Resource_k2p6k"]
 script = ExtResource("1_0d3pt")
 count = 0
 
 [resource]
 script = ExtResource("2_ubxg7")
-items = Array[ExtResource("1_0d3pt")]([SubResource("Resource_yv8we"), SubResource("Resource_qpt8o"), SubResource("Resource_7njvd"), SubResource("Resource_t3gx0"), SubResource("Resource_ewma7"), SubResource("Resource_r126r"), SubResource("Resource_amkmg"), SubResource("Resource_2t61s"), SubResource("Resource_ttu6o"), SubResource("Resource_ybuot"), SubResource("Resource_kje8y"), SubResource("Resource_3idaj")])
+items = Array[ExtResource("1_0d3pt")]([SubResource("Resource_15hxs"), SubResource("Resource_2psum"), SubResource("Resource_7sm72"), SubResource("Resource_nxc0p"), SubResource("Resource_mqpfb"), SubResource("Resource_pkrim"), SubResource("Resource_7w4pf"), SubResource("Resource_eq73h"), SubResource("Resource_cmu7r"), SubResource("Resource_eyfnt"), SubResource("Resource_keq2g"), SubResource("Resource_k2p6k")])

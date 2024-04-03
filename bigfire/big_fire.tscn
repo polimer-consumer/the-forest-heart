@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://sbnftvw0csxi"]
+[gd_scene load_steps=4 format=3 uid="uid://sbnftvw0csxi"]
 
 [ext_resource type="Script" path="res://bigfire/big_fire.gd" id="1_7r8gu"]
 [ext_resource type="AudioStream" uid="uid://lls3xwoj42yc" path="res://audio/campfire-1.mp3" id="2_ah0kq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uda6m"]
 
 [node name="BigFire" type="Node2D"]
 z_index = 1
@@ -12,3 +14,11 @@ script = ExtResource("1_7r8gu")
 stream = ExtResource("2_ah0kq")
 max_distance = 200.0
 attenuation = 0.57435
+
+[node name="FireArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireArea"]
+shape = SubResource("RectangleShape2D_uda6m")
+
+[connection signal="body_entered" from="FireArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="FireArea" to="." method="_on_area_2d_body_exited"]

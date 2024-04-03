@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bn6c2n0echgk"]
+
+[ext_resource type="Script" path="res://inventory/inv_item.gd" id="1_mr2pb"]
+[ext_resource type="Texture2D" uid="uid://bvyhns7lttdg3" path="res://sprites/bucket_water.png" id="2_81jks"]
+
+[resource]
+script = ExtResource("1_mr2pb")
+name = "bucket_full"
+sprite = ExtResource("2_81jks")

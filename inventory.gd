@@ -17,3 +17,14 @@ func insert(item: InventoryItem):
 			empty_slots[0].count = 1
 	
 	update_slot.emit()
+
+func delete(item: InventoryItem):
+	var item_slots = items.filter(func(slot): return slot.item == item)
+	if !item_slots.is_empty():
+		if item_slots[0].count > 1:
+			item_slots[0].count -= 1
+		else:
+			item_slots[0].item = null
+			item_slots[0].count = 0
+	else:
+		pass

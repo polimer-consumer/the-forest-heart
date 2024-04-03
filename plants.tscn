@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cxvmv3esu4dh0"]
 
-[ext_resource type="Texture2D" uid="uid://yxqu3cnrpwax" path="res://tiles/Fir Tree.png" id="2_jj4i1"]
+[ext_resource type="Texture2D" uid="uid://yxqu3cnrpwax" path="res://map/Fir Tree.png" id="2_jj4i1"]
 
 [sub_resource type="GDScript" id="GDScript_jm38i"]
 script/source = "extends CharacterBody2D

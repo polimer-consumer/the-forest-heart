@@ -1,8 +1,7 @@
 
 extends CharacterBody2D
 
-signal player_near_wolf(body)
-
+signal player_near_wolf()
 
 @onready var animation = $AnimatedSprite2D
 @onready var timer = $Timer
@@ -74,7 +73,7 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		timer.stop()
 		update_state(State.IDLE)
-		player_near_wolf.emit(body)
+		player_near_wolf.emit()
 		use_dialogue()
 		
 func use_dialogue():

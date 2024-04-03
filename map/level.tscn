@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bcteo3ai1f5of" path="res://tiles/dead_tree.png" id="5_2jgcu"]
 [ext_resource type="Texture2D" uid="uid://dlhfllvo1pe0" path="res://tiles/RocksnStumps.png" id="5_wxn8o"]
 [ext_resource type="AudioStream" uid="uid://bo2488uqkca31" path="res://audio/forest_ambient.mp3" id="6_fdhex"]
-[ext_resource type="Texture2D" uid="uid://yxqu3cnrpwax" path="res://tiles/Fir Tree.png" id="7_3ocb7"]
+[ext_resource type="Texture2D" uid="uid://yxqu3cnrpwax" path="res://map/Fir Tree.png" id="7_3ocb7"]
 [ext_resource type="AudioStream" uid="uid://buaeowo0b6607" path="res://audio/lake_sound.mp3" id="7_t2vx8"]
 [ext_resource type="PackedScene" uid="uid://d4blsldik5vej" path="res://subscenes/trash.tscn" id="9_7gkpx"]
 [ext_resource type="PackedScene" uid="uid://spd3myqswf2f" path="res://wolf.tscn" id="10_yswwk"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dn38goyg6vpyl" path="res://dialogues.tscn" id="12_j716d"]
 [ext_resource type="Script" path="res://inventory/inv_item.gd" id="13_eagrq"]
 [ext_resource type="Texture2D" uid="uid://dahfjkwdveciy" path="res://sprites/seed.png" id="14_d6cla"]
-[ext_resource type="PackedScene" uid="uid://bxnjtlfgjs3s" path="res://dialogue_wolf.tscn" id="15_wtyov"]
+[ext_resource type="PackedScene" path="res://dialogue_wolf.tscn" id="15_wtyov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1848"]
 texture = ExtResource("2_7bop1")
@@ -663,33 +663,38 @@ texture = ExtResource("5_2jgcu")
 texture = ExtResource("7_3ocb7")
 0:1/size_in_atlas = Vector2i(4, 5)
 0:1/0 = 0
-0:1/0/y_sort_origin = 37
+0:1/0/texture_origin = Vector2i(0, 38)
+0:1/0/y_sort_origin = -1
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
 4:1/size_in_atlas = Vector2i(4, 5)
 4:1/0 = 0
-4:1/0/y_sort_origin = 35
+4:1/0/texture_origin = Vector2i(0, 38)
+4:1/0/y_sort_origin = -2
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.125, 40.125, -0.75, 40, -0.75, 37.625, 1, 37.625)
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.75, -1.25, 1.125, -1.125, 1.25, 2.125, -1.5, 2.125)
 8:1/size_in_atlas = Vector2i(4, 5)
 8:1/0 = 0
-8:1/0/y_sort_origin = 36
+8:1/0/texture_origin = Vector2i(0, 38)
+8:1/0/y_sort_origin = -2
 8:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:1/0/physics_layer_0/angular_velocity = 0.0
-8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.75, 39.875, -1.625, 40, -1.875, 37.125, 1.375, 37.125)
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.125, -1.625, 2, -1.375, 1.625, 2.125, -1.5, 2.125)
 12:1/size_in_atlas = Vector2i(4, 5)
 12:1/0 = 0
-12:1/0/y_sort_origin = 34
+12:1/0/texture_origin = Vector2i(0, 38)
+12:1/0/y_sort_origin = -2
 12:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:1/0/physics_layer_0/angular_velocity = 0.0
-12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 34, 4.25, 34.75, 4.5, 39.5, -3.25, 40.25)
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.875, -2.75, 4, -3.125, 3.75, 2, -3.75, 2)
 16:1/size_in_atlas = Vector2i(4, 5)
 16:1/0 = 0
-16:1/0/y_sort_origin = 33
+16:1/0/texture_origin = Vector2i(0, 38)
+16:1/0/y_sort_origin = -3
 16:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:1/0/physics_layer_0/angular_velocity = 0.0
-16:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 30.5, 3.5, 31.5, 4.5, 39.5, -4, 40)
+16:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.875, -5.125, 5.25, -5.375, 5.125, 1.875, -3.75, 2)
 
 [sub_resource type="TileSet" id="TileSet_5n056"]
 occlusion_layer_0/light_mask = 1
@@ -704,7 +709,7 @@ sources/8 = SubResource("TileSetAtlasSource_r0cy6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dicvh"]
 size = Vector2(155, 88)
 
-[sub_resource type="Resource" id="Resource_pwbms"]
+[sub_resource type="Resource" id="Resource_5ckvl"]
 resource_local_to_scene = true
 script = ExtResource("13_eagrq")
 name = "seed"
@@ -755,7 +760,7 @@ stream = ExtResource("6_fdhex")
 [node name="trash" parent="." instance=ExtResource("9_7gkpx")]
 z_index = 1
 position = Vector2(304, -3)
-seed_item = SubResource("Resource_pwbms")
+seed_item = SubResource("Resource_5ckvl")
 
 [node name="Notification" type="Sprite2D" parent="."]
 
@@ -774,5 +779,6 @@ offset_right = -1196.0
 [connection signal="body_entered" from="TileMap/Area2D" to="." method="_on_player_entered_water"]
 [connection signal="body_exited" from="TileMap/Area2D" to="." method="_on_player_exited_water"]
 [connection signal="player_near_npc" from="NPC" to="." method="_on_npc_player_near_npc"]
+[connection signal="player_near_wolf" from="Wolf" to="." method="_on_wolf_player_near_wolf"]
 [connection signal="player_near_trash" from="trash" to="Player" method="_on_trash_player_near_trash"]
 [connection signal="trash_collected" from="trash" to="." method="_on_trash_trash_collected"]

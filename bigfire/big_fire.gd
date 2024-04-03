@@ -1,9 +1,12 @@
 extends Node2D
 
-signal fire_extinguished
+signal fire_extinguished(node)
 
 @onready var fire_sound = $AudioStreamPlayer2D
+@onready var fire_extinguish_shape = $FireArea/CollisionShape2D
 var fire_scene = preload("..//subscenes/fire.tscn")
+var player_in_extinguish_area = false
+var player = null
 @export var max_fires = 5
 @export var area_size = Vector2(70, 70)
 @export var min_distance = 20
@@ -11,6 +14,8 @@ var fire_scene = preload("..//subscenes/fire.tscn")
 
 func _ready():
 	populate_fires()
+	fire_extinguish_shape.shape.size = area_size + Vector2(30, 30)
+	fire_extinguish_shape.position = Vector2(area_size.x / 2, area_size.y / 2)
 	fire_sound.position = Vector2(area_size.x / 2, area_size.y / 2)
 	fire_sound.volume_db = log(max_fires)
 	for child in get_children():
@@ -18,7 +23,7 @@ func _ready():
 	fire_sound.play()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("take_trash"):
+	if Input.is_action_just_pressed("take_trash") and player_in_extinguish_area and player.has_water_now:
 		extunguish_fire()
 
 func extunguish_fire():
@@ -28,7 +33,8 @@ func extunguish_fire():
 		fire.queue_free()
 		if fires.size() == 1:
 			get_children()[0].queue_free()
-			fire_extinguished.emit()
+			player.has_water_now = false
+			fire_extinguished.emit(self)
 
 func populate_fires():
 	for i in range(max_fires):
@@ -51,3 +57,15 @@ func populate_fires():
 			var fire_instance = fire_scene.instantiate()
 			add_child(fire_instance)
 			fire_instance.global_position = fire_position
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		player = body
+		player_in_extinguish_area = true
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("player"):
+		player = null
+		player_in_extinguish_area = false

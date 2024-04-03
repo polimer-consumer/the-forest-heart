@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4blsldik5vej"]
+[gd_scene load_steps=13 format=3 uid="uid://d4blsldik5vej"]
 
 [ext_resource type="Script" path="res://trash.gd" id="1_wc60g"]
 [ext_resource type="Resource" uid="uid://dmo85g01cji5v" path="res://inventory/items/bucket.tres" id="2_tus3u"]
 [ext_resource type="Texture2D" uid="uid://bwtnld2r5arc3" path="res://sprites/trash_state_0.png" id="3_i6y4x"]
+[ext_resource type="Resource" uid="uid://bmxlm1ubq1gi7" path="res://inventory/items/seed.tres" id="3_twvw7"]
 [ext_resource type="Texture2D" uid="uid://biscp8n3jcqjb" path="res://sprites/trash_state_1.png" id="4_rqwki"]
 [ext_resource type="Texture2D" uid="uid://hv0jl6y4x0vl" path="res://sprites/trash_state_2.png" id="5_xtkno"]
 
@@ -55,6 +56,7 @@ size = Vector2(98, 52)
 [node name="trash" type="StaticBody2D"]
 script = ExtResource("1_wc60g")
 bucket_item = ExtResource("2_tus3u")
+seed_item = ExtResource("3_twvw7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

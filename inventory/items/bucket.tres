@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dmo85g01cji5v"]
 
 [ext_resource type="Script" path="res://inventory/inv_item.gd" id="1_sojm3"]
-[ext_resource type="Texture2D" uid="uid://clugsk3k7v77t" path="res://sprites/bucket.png" id="2_jgo20"]
+[ext_resource type="Texture2D" uid="uid://dqjgetpu8fwqn" path="res://sprites/bucket_empty.png" id="2_41h4e"]
 
 [resource]
 script = ExtResource("1_sojm3")
 name = "bucket"
-sprite = ExtResource("2_jgo20")
+sprite = ExtResource("2_41h4e")

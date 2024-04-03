@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yxqu3cnrpwax"
-path="res://.godot/imported/Fir Tree.png-8c1217daf2bf16b1cf055a1f3f33bce2.ctex"
+uid="uid://bvyhns7lttdg3"
+path="res://.godot/imported/bucket_water.png-7eb64ccc4ceb91efec8c8a6c10d61b3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/Fir Tree.png"
-dest_files=["res://.godot/imported/Fir Tree.png-8c1217daf2bf16b1cf055a1f3f33bce2.ctex"]
+source_file="res://sprites/bucket_water.png"
+dest_files=["res://.godot/imported/bucket_water.png-7eb64ccc4ceb91efec8c8a6c10d61b3b.ctex"]
 
 [params]
 

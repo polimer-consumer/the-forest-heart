@@ -1,4 +1,5 @@
 extends Node2D
+
 signal water_collected()
 signal player_near_water()
 signal player_exited_water()
@@ -12,6 +13,8 @@ var fire_scene = preload("res://bigfire/big_fire.tscn")
 var final_seeds_level = 5
 var env_layer = 3
 var num_seed = 0
+var is_first_wolf_encounter = true
+var player = null
 
 func _ready():
 	ambient_sound.play()
@@ -30,26 +33,31 @@ func _on_player_entered_water(body):
 	if body.is_in_group("player"):
 		print("наберите воду")
 		player_is_near = true
+		player = body
 		player_near_water.emit()
 		
 func _on_player_exited_water(body):
 	if body.is_in_group("player"):
 		player_is_near = false
+		player = null
 		player_exited_water.emit()
 		
 func _process(delta):
-	if Input.is_action_just_pressed("spawn_fire"):
-		var new_fire = fire_scene.instantiate()
-		new_fire.fire_center = Vector2(-180, 80)
-		add_child(new_fire)
 	_player_take_water()
 			
 func _player_take_water():		
 	if Input.is_action_just_pressed("take_water") and player_is_near:
-		print( "you have water now")
-		num_seed +=1
+		print("you have water now")
+		player.has_water_now = true
+		num_seed += 1
 		water_collected.emit()
-		
+
+func spawn_fire(center: Vector2 = Vector2(-180, 80)):
+	var new_fire = fire_scene.instantiate()
+	new_fire.fire_center = center
+	add_child(new_fire)
+	new_fire.connect("fire_extinguished", Callable(self, "_on_fire_extinguished"))
+
 func _input(event):
 	if Input.is_action_just_pressed("seeds") and num_seed > 0:
 		var mous_pos: Vector2 = get_global_mouse_position()
@@ -76,3 +84,10 @@ func handle_seed(tile_map_pos, level, atlas_coard, final_seed_level):
 		print("растет")
 		handle_seed(tile_map_pos, level+1 , new_atlas, final_seed_level)
 	
+func _on_fire_extinguished(node):
+	node.queue_free()
+
+func _on_wolf_player_near_wolf():
+	if is_first_wolf_encounter:
+		spawn_fire()
+		is_first_wolf_encounter = false
