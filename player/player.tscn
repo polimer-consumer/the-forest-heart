@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://rkf2woxwjg6t" path="res://inventory/player_inventory.tres" id="2_7h710"]
 [ext_resource type="Texture2D" uid="uid://07v3uwoa5ryh" path="res://sprites/spritesheet.png" id="2_v13u1"]
 [ext_resource type="Resource" uid="uid://dmo85g01cji5v" path="res://inventory/items/bucket.tres" id="3_4dej4"]
-[ext_resource type="Resource" uid="uid://bn6c2n0echgk" path="res://inventory/items/bucket_full.tres" id="3_m8fk8"]
+[ext_resource type="Resource" path="res://inventory/items/bucket_full.tres" id="3_m8fk8"]
 
 [sub_resource type="Animation" id="Animation_ar2rh"]
 length = 0.001

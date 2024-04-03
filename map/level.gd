@@ -49,7 +49,6 @@ func _player_take_water():
 	if Input.is_action_just_pressed("take_water") and player_is_near:
 		print("you have water now")
 		player.has_water_now = true
-		num_seed += 1
 		water_collected.emit()
 
 func spawn_fire(center: Vector2 = Vector2(-180, 80)):
@@ -85,6 +84,7 @@ func handle_seed(tile_map_pos, level, atlas_coard, final_seed_level):
 		handle_seed(tile_map_pos, level+1 , new_atlas, final_seed_level)
 	
 func _on_fire_extinguished(node):
+	num_seed += 1
 	node.queue_free()
 
 func _on_wolf_player_near_wolf():
