@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dn38goyg6vpyl" path="res://dialogues.tscn" id="12_j716d"]
 [ext_resource type="Script" path="res://inventory/inv_item.gd" id="13_eagrq"]
 [ext_resource type="Texture2D" uid="uid://dahfjkwdveciy" path="res://sprites/seed.png" id="14_d6cla"]
-[ext_resource type="PackedScene" path="res://dialogue_wolf.tscn" id="15_wtyov"]
+[ext_resource type="PackedScene" uid="uid://bxnjtlfgjs3s" path="res://dialogue_wolf.tscn" id="15_wtyov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1848"]
 texture = ExtResource("2_7bop1")
@@ -663,24 +663,30 @@ texture = ExtResource("5_2jgcu")
 texture = ExtResource("7_3ocb7")
 0:1/size_in_atlas = Vector2i(4, 5)
 0:1/0 = 0
+0:1/0/y_sort_origin = 37
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
 4:1/size_in_atlas = Vector2i(4, 5)
 4:1/0 = 0
+4:1/0/y_sort_origin = 35
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.125, 40.125, -0.75, 40, -0.75, 37.625, 1, 37.625)
 8:1/size_in_atlas = Vector2i(4, 5)
 8:1/0 = 0
+8:1/0/y_sort_origin = 36
 8:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:1/0/physics_layer_0/angular_velocity = 0.0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.75, 39.875, -1.625, 40, -1.875, 37.125, 1.375, 37.125)
 12:1/size_in_atlas = Vector2i(4, 5)
 12:1/0 = 0
+12:1/0/y_sort_origin = 34
 12:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:1/0/physics_layer_0/angular_velocity = 0.0
 12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 34, 4.25, 34.75, 4.5, 39.5, -3.25, 40.25)
 16:1/size_in_atlas = Vector2i(4, 5)
 16:1/0 = 0
-16:1/0/y_sort_origin = 32
+16:1/0/y_sort_origin = 33
 16:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:1/0/physics_layer_0/angular_velocity = 0.0
 16:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 30.5, 3.5, 31.5, 4.5, 39.5, -4, 40)
@@ -698,7 +704,7 @@ sources/8 = SubResource("TileSetAtlasSource_r0cy6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dicvh"]
 size = Vector2(155, 88)
 
-[sub_resource type="Resource" id="Resource_rf08h"]
+[sub_resource type="Resource" id="Resource_pwbms"]
 resource_local_to_scene = true
 script = ExtResource("13_eagrq")
 name = "seed"
@@ -749,7 +755,7 @@ stream = ExtResource("6_fdhex")
 [node name="trash" parent="." instance=ExtResource("9_7gkpx")]
 z_index = 1
 position = Vector2(304, -3)
-seed_item = SubResource("Resource_rf08h")
+seed_item = SubResource("Resource_pwbms")
 
 [node name="Notification" type="Sprite2D" parent="."]
 
