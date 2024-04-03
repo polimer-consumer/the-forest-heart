@@ -73,7 +73,7 @@ func can_move_to_direction(direction, speed) -> bool:
 
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") :
 		timer.stop()
 		update_state(State.IDLE)
 		player_near_npc.emit(body)

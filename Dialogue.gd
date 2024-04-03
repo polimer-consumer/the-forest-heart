@@ -4,13 +4,14 @@ extends CanvasLayer
 var dialogue =[]
 var cur_dialogue_id = 0
 var d_active = false
+var dialog_end = 0 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$NinePatchRect.visible = false
 	
 		
 func start():
-	if d_active:
+	if d_active == true and dialog_end == 0:
 		return
 	d_active = true
 	$NinePatchRect.visible = true
@@ -33,9 +34,9 @@ func next_script():
 	cur_dialogue_id += 1
 	
 	if cur_dialogue_id >= 6:
-		d_active = false
-		$NinePatchRect.visible = false
-		return
+		dialog_end = 1
+		print(dialog_end)
+		end()
 	
 	$NinePatchRect/Name.text = dialogue[cur_dialogue_id]['name']
 	$NinePatchRect/Chat.text = dialogue[cur_dialogue_id]['text']
