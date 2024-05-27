@@ -1,6 +1,8 @@
 extends Node2D
 
 signal fire_extinguished(node)
+signal player_entered_fire()
+signal player_exited_fire()
 
 @onready var fire_sound = $AudioStreamPlayer2D
 @onready var fire_extinguish_shape = $FireArea/CollisionShape2D
@@ -61,11 +63,13 @@ func populate_fires():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
+		player_entered_fire.emit()
 		player = body
 		player_in_extinguish_area = true
 
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
+		player_exited_fire.emit()
 		player = null
 		player_in_extinguish_area = false

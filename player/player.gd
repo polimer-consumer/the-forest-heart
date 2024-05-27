@@ -8,6 +8,8 @@ var has_water_now = false
 var had_water_before = false
 var audio_playing = false
 
+@onready var camera = $Camera2D
+@onready var hint = $Hint
 @onready var animation_player = $AnimationPlayer
 @onready var audio_listener = $AudioListener2D
 @onready var sprite = $Sprite2D
@@ -17,6 +19,7 @@ var audio_playing = false
 func _ready():
 	add_to_group("player")
 	audio_listener.make_current()
+	hint.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,11 +48,50 @@ func _process(delta):
 	velocity = direction * speed
 	move_and_slide()
 
+func _input(_event):
+	if Input.is_action_pressed("zoom_in"):
+		camera.zoom = camera.zoom * 1.1
+	elif Input.is_action_pressed("zoom_out"):
+		camera.zoom = camera.zoom / 1.1
+
+
 func _on_trash_player_near_trash():
-	pass # Replace with function body.
+	hint.text = "Press 'F' to clean trash"
+	hint.visible = true
+
+
+func _on_trash_player_exited_trash():
+	hint.visible = false
+
 
 func collect_item(item):
 	inventory.insert(item)
 
 func delete_item(item):
 	inventory.delete(item)
+
+
+func _on_level_player_near_water():
+	hint.text = "Press 'Z' to take water"
+	hint.visible = true
+
+
+func _on_level_player_exited_water():
+	hint.visible = false
+
+
+func _on_trash_trash_collected():
+	hint.visible = true
+	hint.text = "Wow! There was something useful in this pile!\nPress 'I' to check inventory"
+
+func _on_inventory_ui_inventory_open():
+	hint.visible = false
+
+
+func _on_level_player_in_fire():
+	hint.text = "Press 'F' to extinguish fire"
+	hint.visible = true
+
+
+func _on_level_player_out_fire():
+	hint.visible = false

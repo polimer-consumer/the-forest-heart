@@ -3,6 +3,8 @@ extends Control
 @onready var inventory = preload("res://inventory/player_inventory.tres")
 @onready var slots = $NinePatchRect/GridContainer.get_children()
 var is_open = false
+signal inventory_open()
+signal inventory_close()
 
 func _ready():
 	inventory.update_slot.connect(update)
@@ -12,8 +14,10 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("inventory"):
 		if is_open:
+			inventory_close.emit()
 			close()
 		else:
+			inventory_open.emit()
 			open()
 
 func update():

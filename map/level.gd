@@ -3,6 +3,9 @@ extends Node2D
 signal water_collected()
 signal player_near_water()
 signal player_exited_water()
+signal player_in_fire()
+signal player_out_fire()
+
 @onready var tile_map: TileMap = $TileMap
 @onready var ambient_sound = $AmbientForestSound
 @onready var lake_sound = $TileMap/Area2D/LakeSound
@@ -56,6 +59,8 @@ func spawn_fire(center: Vector2 = Vector2(-180, 80)):
 	new_fire.fire_center = center
 	add_child(new_fire)
 	new_fire.connect("fire_extinguished", Callable(self, "_on_fire_extinguished"))
+	new_fire.connect("player_entered_fire", Callable(self, "_on_player_entered_fire"))
+	new_fire.connect("player_exited_fire", Callable(self, "_on_player_exited_fire"))
 
 func _input(event):
 	if Input.is_action_just_pressed("seeds") and num_seed > 0:
@@ -86,6 +91,12 @@ func handle_seed(tile_map_pos, level, atlas_coard, final_seed_level):
 func _on_fire_extinguished(node):
 	num_seed += 1
 	node.queue_free()
+
+func _on_player_entered_fire():
+	player_in_fire.emit()
+
+func _on_player_exited_fire():
+	player_out_fire.emit()
 
 func _on_wolf_player_near_wolf():
 	if is_first_wolf_encounter:

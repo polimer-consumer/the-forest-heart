@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://deoh2c3tg5arc"]
+
+[ext_resource type="Script" path="res://generation/world_generator.gd" id="1_ddlh7"]
+[ext_resource type="TileSet" uid="uid://ci5l64i5ni6cs" path="res://map/tileset.tres" id="2_hv74b"]
+[ext_resource type="PackedScene" uid="uid://w62us1abgvss" path="res://player/player.tscn" id="3_fu5b0"]
+[ext_resource type="AudioStream" uid="uid://bo2488uqkca31" path="res://audio/forest_ambient.mp3" id="4_jfoji"]
+[ext_resource type="PackedScene" uid="uid://bmg5i831shj4v" path="res://inventory/ui/inventory_ui.tscn" id="5_sf27x"]
+
+[sub_resource type="Gradient" id="Gradient_cgwat"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.651786, 1)
+colors = PackedColorArray(0.301287, 0.67413, 0.483799, 1, 0.36906, 0.699947, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3purw"]
+noise_type = 3
+frequency = 0.0105
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l0hti"]
+width = 128
+height = 128
+color_ramp = SubResource("Gradient_cgwat")
+noise = SubResource("FastNoiseLite_3purw")
+
+[node name="WorldGenerator" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ddlh7")
+noise_texture = SubResource("NoiseTexture2D_l0hti")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+tile_set = ExtResource("2_hv74b")
+format = 2
+layer_0/name = "terrain"
+layer_1/name = "trees"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Player" parent="." instance=ExtResource("3_fu5b0")]
+z_index = 1
+speed = 200
+
+[node name="AmbientForestSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jfoji")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(30, 10)
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 30, 10)
+
+[node name="InventoryUI" parent="CanvasLayer" instance=ExtResource("5_sf27x")]
+offset_left = -8.0
+offset_right = -1196.0
+metadata/_edit_use_anchors_ = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://w62us1abgvss"]
+[gd_scene load_steps=14 format=3 uid="uid://w62us1abgvss"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g7yvc"]
 [ext_resource type="Resource" uid="uid://rkf2woxwjg6t" path="res://inventory/player_inventory.tres" id="2_7h710"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://dmo85g01cji5v" path="res://inventory/items/bucket.tres" id="3_4dej4"]
 [ext_resource type="Resource" uid="uid://bn6c2n0echgk" path="res://inventory/items/bucket_full.tres" id="3_m8fk8"]
 [ext_resource type="AudioStream" uid="uid://dja2q6wsfh2do" path="res://audio/steps_grass.mp3" id="6_u3l5d"]
+[ext_resource type="FontFile" uid="uid://dcrc41n1tnu87" path="res://fonts/Silver.ttf" id="7_6m5ae"]
 
 [sub_resource type="Animation" id="Animation_ar2rh"]
 length = 0.001
@@ -66,6 +67,10 @@ _data = {
 radius = 4.0
 height = 18.0
 
+[sub_resource type="Theme" id="Theme_snbyp"]
+default_font = ExtResource("7_6m5ae")
+default_font_size = 100
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_g7yvc")
@@ -102,3 +107,14 @@ vframes = 2
 region_rect = Rect2(1.81583, 1.57898, 44.6448, 44.6448)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="Hint" type="Label" parent="."]
+z_index = 1
+offset_left = -38.0
+offset_top = -39.0
+offset_right = 722.0
+offset_bottom = 73.0
+scale = Vector2(0.1, 0.1)
+theme = SubResource("Theme_snbyp")
+horizontal_alignment = 1
+vertical_alignment = 1
